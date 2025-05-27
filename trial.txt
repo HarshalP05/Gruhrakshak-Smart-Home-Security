@@ -1,0 +1,3 @@
+SELECT * FROM temperature_data;
+SELECT * FROM humidity_data;
+SELECT * FROM mq6_data;

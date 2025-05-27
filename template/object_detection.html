@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://cdn.pixabay.com/photo/2020/01/25/05/17/face-detection-4791810_960_720.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Rowdies', cursive;
+        }
+
+        .detection-controls {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for the controls */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .button-40 {
+            background: linear-gradient(-45deg, #77E4C8, #36C2CE, #478CCF, #4535C1);
+            background-size: 180% 180%;
+            animation: gradient 18s ease infinite;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Shanti', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            margin: 10px;
+            width: 100%; /* Full width of the container */
+        }
+
+        .button-40:hover {
+            opacity: 0.9;
+        }
+
+        .logout-button {
+            background: linear-gradient(-45deg, #FF6F61, #FFB74D, #FFEB3B, #8BC34A);
+            background-size: 180% 180%;
+            animation: gradient 18s ease infinite;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Shanti', sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            margin: 10px;
+            width: 100%; /* Full width of the container */
+        }
+
+        .logout-button:hover {
+            opacity: 0.9;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="detection-controls">
+        <div>
+            Detection System Is Active 
+        </div>
+    
+        <form method="post" action="{{ url_for('start_detection') }}">
+            <button class="button-40" type="submit">Start Detection</button>
+        </form>
+        <form method="post" action="{{ url_for('stop_detection') }}">
+            <button class="button-40" type="submit">Stop Detection</button>
+        </form>
+        <a href="{{ url_for('logout') }}">
+            <button class="logout-button">Logout</button>
+        </a>
+    </div>
+</body>
+</html>
